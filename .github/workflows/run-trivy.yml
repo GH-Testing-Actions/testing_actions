@@ -7,13 +7,14 @@ on:
   pull_request:
 jobs:
   build:
-    name: Run Trivy Vulnerability Scanner on Dockerfile :neckbeard:
+    name: Run Trivy Vulnerability Scanner on Dockerfile
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Build an image from Dockerfile
         run: |
+          echo "##### TRIVY SCANNING DOCKERFILE :rocket: :neckbeard:' >> $GITHUB_STEP_SUMMARY
           docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
