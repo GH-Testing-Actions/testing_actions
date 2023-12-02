@@ -21,3 +21,5 @@ jobs:
           format: 'sarif'
           output: 'trivy-results.sarif'
           severity: 'CRITICAL'
+          run: echo "RESULTS=$(cat trivy-results.sarif)" >> $GITHUB_OUTPUT
+          
