@@ -26,10 +26,10 @@ jobs:
         id: results
         run: |
            {
-             echo 'RESULTS<<EOF'
-             $(cat trivy-results.sarif)
-             echo EOF
-            } >> "$GITHUB_OUTPUT"
+             delimiter="DCRASHOVERIDE"
+             echo $(cat trivy-results.sarif) >> $GITHUB_OUTPUT
+             echo $delimiter >> $GITHUB_OUTPUT
+            } 
       - name: Get Output
         env:
           RESULTS: ${{ steps.results.outputs.RESULTS }}
