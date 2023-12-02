@@ -22,7 +22,10 @@ jobs:
           output: 'trivy-results.sarif'
           severity: 'CRITICAL'
           
-      - name: Show Results
+      - name: Set Results
+        id: results
         run: echo "RESULTS=$(cat trivy-results.sarif)" >> GITHUB_OUTPUT
+      - name: Get Output
+        run: echo ${{ steps.results.outputs.RESULTS }}
         
           
