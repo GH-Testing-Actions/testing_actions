@@ -1,4 +1,4 @@
-name: build
+name: run-trivy
 on:
   push:
     branches:
@@ -17,7 +17,7 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
-          ignore-unfixed: true
+          ignore-unfixed: false
           format: 'sarif'
           output: 'trivy-results.sarif'
           severity: 'CRITICAL'
