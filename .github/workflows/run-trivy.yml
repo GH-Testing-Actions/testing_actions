@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - Dcrash0veride-patch-1
   pull_request:
 jobs:
   build:
