@@ -1,9 +1,9 @@
-name: run-trivy
+name: build
 on:
   push:
     branches:
       - main
-      - Dcrash0veride-patch-1
+      - Drash0verdide-patch-1
   pull_request:
 jobs:
   build:
@@ -11,28 +11,16 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Run Trivy vulnerability scanner in repo mode
+        uses: actions/checkout@v2
+      - name: Build an image from Dockerfile
+        run: |
+          docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
+      - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          scan-type: 'fs'
+          image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
+          format: 'table'
+          exit-code: '1'
           ignore-unfixed: false
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-          severity: 'CRITICAL'
-          
-      - name: Set Results
-        id: results
-        run: |
-           {
-             delimiter="DCRASHOVERIDE"
-             echo $(cat trivy-results.sarif) >> $GITHUB_OUTPUT
-             echo $delimiter >> $GITHUB_OUTPUT
-            } 
-      - name: Get Output
-        env:
-          RESULTS: ${{ steps.results.outputs.RESULTS }}
-        run: echo "The results of the trivy scan is $RESULTS" 
-        
-          
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH,MEDIUM,LOW'
