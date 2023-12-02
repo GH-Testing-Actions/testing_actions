@@ -24,7 +24,12 @@ jobs:
           
       - name: Set Results
         id: results
-        run: echo "RESULTS=$(cat trivy-results.sarif)" >> "$GITHUB_OUTPUT"
+        run: |
+           {
+             echo 'RESULTS<<EOF'
+             $(cat trivy-results.sarif)
+             echo EOF
+            } >> "$GITHUB_OUTPUT"
       - name: Get Output
         env:
           RESULTS: ${{ steps.results.outputs.RESULTS }}
