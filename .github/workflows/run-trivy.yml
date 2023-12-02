@@ -24,8 +24,10 @@ jobs:
           
       - name: Set Results
         id: results
-        run: echo "RESULTS=$(cat trivy-results.sarif)" >> GITHUB_OUTPUT
+        run: echo "RESULTS=$(cat trivy-results.sarif)" >> "$GITHUB_OUTPUT"
       - name: Get Output
-        run: echo ${{ steps.results.outputs.RESULTS }}
+        env:
+          RESULTS: ${{ steps.results.outputs.RESULTS }}
+        run: echo "The results of the trivy scan is $RESULTS" 
         
           
