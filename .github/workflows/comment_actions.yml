@@ -2,7 +2,7 @@ name: echo-comments
 on:
   issues:
     types:
-      - created
+      - opened
 jobs:
   echo-content:
     runs-on: ubuntu-latest
