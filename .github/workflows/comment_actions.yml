@@ -1,6 +1,6 @@
 name: echo-comments
 on:
-  issue:
+  issues:
     types:
       - created
 jobs:
