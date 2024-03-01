@@ -1,27 +1,12 @@
-name: run-trivy
+name: echo-comments
 on:
-  push:
-    branches:
-      - main
-      - Drash0verdide-patch-1
-  pull_request:
+  issue_comment:
+    types:
+      - created
 jobs:
-  build:
-    name: Run Trivy Vulnerability Scanner on Dockerfile
-    runs-on: ubuntu-20.04
+  echo-content:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Build an image from Dockerfile
-        run: |
-          echo "##### TRIVY SCANNING DOCKERFILE :rocket: :neckbeard:" >> $GITHUB_STEP_SUMMARY
-          docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
-          format: 'table'
-          exit-code: '1'
-          ignore-unfixed: false
-          vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH,MEDIUM,LOW'
+    - name: echo-body
+      run: echo ${{ github.event.comment.body }}
+    
