@@ -2,7 +2,6 @@ name: run-trivy
 on:
   push:
     branches:
-      - main
       - Drash0verdide-patch-1
   pull_request:
 jobs:
