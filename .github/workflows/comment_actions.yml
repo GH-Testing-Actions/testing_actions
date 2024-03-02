@@ -40,6 +40,10 @@ jobs:
       run: echo "role=$(echo $BODY | cut -d ',' -f4)" >> $GITHUB_OUTPUT
     - name: get-role
       id: get-role
-      run: echo ${{ steps.set-role.outputs.role }}
+      run: | 
+        echo ${{ steps.vars.output.sub_id }}
+        echo ${{ steps.set_resource.outputs.resource }}
+        echo ${{ steps.resourcegroup.outputs.resource_group }}
+        echo ${{ steps.set-role.outputs.role }}
       
     
