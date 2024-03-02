@@ -11,5 +11,10 @@ jobs:
     - name: echo-body
       env: 
         BODY: ${{ github.event.issue.body }}
-      run: echo $BODY | cut -d ',' -f1
+      run: |
+        echo "sub_id=$(echo $BODY | cut -d ',' -f1)" >> $GITHUB_OUTPUT
+      id: vars
+    - name: echo-sub-id
+      id: step-two
+      run: echo ${{ steps.vars.outputs.sub_id }}
     
