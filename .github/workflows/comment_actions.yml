@@ -25,5 +25,17 @@ jobs:
     - name: get-resource-group
       id: get-rg
       run: echo ${{ steps.resourcegroup.outputs.resource_group }}
+    - name: set-resource
+      id: set_resource
+      run: echo "resource=$(echo $BODY | cut -d ',' -f3)" >> $GITHUB_OUTPUT
+    - name: get-resource
+      id: get-resource
+      run: echo ${{ steps.set_resource.outputs.resource }}
+    - name: set-role
+      id: set-role
+      run: echo "role=$(echo $BODY | cut -d ',' -f4)" >> $GITHUB_OUTPUT
+    - name: get-role
+      id: get-role
+      run: echo ${{ steps.set-role.outputs.role }}
       
     
