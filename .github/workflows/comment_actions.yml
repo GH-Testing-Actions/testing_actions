@@ -11,5 +11,5 @@ jobs:
     - name: echo-body
       env: 
         BODY: ${{ github.event.issue.body }}
-      run: echo $BODY
+      run: echo $BODY | cut -d ',' -f1
     
