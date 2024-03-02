@@ -1,11 +1,12 @@
 name: echo-comments
 on:
-  issues:
+  issue_comment:
     types:
-      - opened
+      - created
 jobs:
   echo-content:
     runs-on: ubuntu-latest
+    if: ${{ github.event.comment.body == 'Approved'}}
     steps:
     - name: echo-body
       run: echo ${{ github.event.issue.body }}
