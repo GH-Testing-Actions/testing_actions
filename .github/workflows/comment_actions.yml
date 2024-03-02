@@ -41,7 +41,7 @@ jobs:
     - name: get-role
       id: get-role
       run: | 
-        echo ${{ steps.vars.output.sub_id }}
+        echo ${{ steps.vars.outputs.sub_id }}
         echo ${{ steps.set_resource.outputs.resource }}
         echo ${{ steps.resourcegroup.outputs.resource_group }}
         echo ${{ steps.set-role.outputs.role }}
