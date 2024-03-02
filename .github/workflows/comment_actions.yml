@@ -9,5 +9,7 @@ jobs:
     if: ${{ github.event.comment.body == 'Approved'}}
     steps:
     - name: echo-body
-      run: echo ${{ github.event.issue.body }}
+      env: 
+        BODY: ${{ github.event.issue.body }}
+      run: echo $BODY
     
