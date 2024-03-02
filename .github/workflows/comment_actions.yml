@@ -17,4 +17,11 @@ jobs:
     - name: echo-sub-id
       id: step-two
       run: echo ${{ steps.vars.outputs.sub_id }}
+    - name: set-resource-group
+      id: resource-group
+      run: echo "resource_group=$(echo $BODY | cut -d ',' -f2)" >> $GITHUB_OUTPUT
+    - name: get-resource-group
+      id: get-rg
+      run: echo ${{ steps.resource-group.outputs.resource-group }}
+      
     
