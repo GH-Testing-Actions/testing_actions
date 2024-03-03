@@ -54,7 +54,4 @@ jobs:
         --tenant ${{ secrets.ARM_TENANT_ID }}
         az ad sp create-for-rbac --name sp-${RANDOM}${RANDOM} \
         --role ${{ steps.set-role.outputs.role}} \
-        --scopes /subscriptions/${{ steps.vars.outputs.sub_id }}/${{ steps.resourcegroup.outputs.resource_group }}/${{ steps.set_resource.outputs.resource }}
-    
-      
-    
+        --scopes /subscriptions/${{ steps.vars.outputs.sub_id }}/
