@@ -1,0 +1,13 @@
+name: cveeeps
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  install-docker:
+    name: install-docker
+    runs-on: ubuntu-latest
+    
+    
