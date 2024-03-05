@@ -6,7 +6,7 @@ on:
 jobs:
   echo-content:
     runs-on: ubuntu-latest
-    if: ${{ github.event.comment.body == 'Approved'}}
+    if: ${{ github.event.comment.body == 'Approved' && github.event.comment.user.login == 'Dcrash0veride'}}
     steps:
     - name: echo-body
       env: 
