@@ -7,6 +7,12 @@ jobs:
   threat-check:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            threat-model.txt
+          sparse-checkout-cone-mode: false
       - name: Threat-Check
         id: threat_check
         run: |
