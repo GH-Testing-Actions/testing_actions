@@ -1,4 +1,4 @@
-name: echo-comments
+name: service-principal
 on:
   issue_comment:
     types:
