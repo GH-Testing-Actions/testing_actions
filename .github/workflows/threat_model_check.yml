@@ -14,6 +14,7 @@ jobs:
             echo "result=true" >> $GITHUB_OUTPUT
           else
             echo "result=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: check
         if: steps.threat_check.outputs == 'false'
