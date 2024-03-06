@@ -15,9 +15,10 @@ jobs:
           else
             echo "result=false" >> $GITHUB_OUTPUT
           fi
+          echo ${{ steps.threat_check.outputs.result }}
 
       - name: check
-        if: steps.threat_check.outputs == 'false'
+        if: steps.threat_check.outputs.result == 'false'
         run: |
           echo "I ran"
           exit 1
