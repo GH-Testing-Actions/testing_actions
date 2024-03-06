@@ -10,7 +10,7 @@ jobs:
       - name: Threat-Check
         id: threat_check
         run: |
-          if test -f "threat-model.txt"; then  
+          if [ -f threat-model.txt ]; then  
             echo "You found me!"
             echo "result=true" >> $GITHUB_OUTPUT
           else
