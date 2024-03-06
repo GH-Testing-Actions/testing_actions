@@ -1,0 +1,15 @@
+name: Threat-Model
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  threat-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Threat-Check
+        if: ${{ hashfiles('threat-model.txt') != '' }}
+        run: echo "File exists"
+  
