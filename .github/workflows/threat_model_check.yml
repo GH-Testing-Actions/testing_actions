@@ -19,6 +19,7 @@ jobs:
       - name: check
         if: steps.threat_check.outputs == 'false'
         run: |
+          echo "I ran"
           exit 1
           
         
