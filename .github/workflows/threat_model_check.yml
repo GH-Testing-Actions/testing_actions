@@ -8,6 +8,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Threat-Check
-        if: ${{ hashfiles('threat-model.txt') != '' }}
-        run: echo "File exists"
+        id: threat_check
+        run: |
+          if test -f "threat-model.txt"; then
+            echo "result=true" >> $GITHUB_OUTPUT
+          else
+            echo "result=false" >> $GITHUB_OUTPUT
+
+      - name: check
+        if: steps.threat_check.outputs == 'false'
+        run: |
+          exit 1
+          
+        
+        
+
+        
   
