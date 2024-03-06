@@ -1,2 +1,2 @@
 [![service-principal](https://github.com/Dcrash0veride/testing_actions/actions/workflows/comment_actions.yml/badge.svg)](https://github.com/Dcrash0veride/testing_actions/actions/workflows/comment_actions.yml)
-[![Threat-Model](https://github.com/Dcrash0veride/testing_actions/actions/workflows/threat_model_check.yml/badge.svg)](https://github.com/Dcrash0veride/testing_actions/actions/workflows/threat_model_check.yml)
+[![Threat-Model](https://github.com/Dcrash0veride/testing_actions/actions/workflows/threat_model_check.yml/badge.svg?event=push)](https://github.com/Dcrash0veride/testing_actions/actions/workflows/threat_model_check.yml)
