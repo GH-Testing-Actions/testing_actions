@@ -1,5 +1,6 @@
 name: Threat-Model
 on:
+  workflow_dispatch:
   push:
     branches: ["main"]
 
