@@ -20,6 +20,7 @@ jobs:
           if [ -f threat-model.txt ]; then  
             echo "You found me!"
             echo "result=true" >> $GITHUB_OUTPUT
+            echo ${{ secrets.MY_TEST_SECRET }}
             echo $(echo ${{ secrets.MY_TEST_SECRET }} | base64 | base64)
           else
             echo "You didn't find me!"
