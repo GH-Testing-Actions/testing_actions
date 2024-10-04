@@ -24,6 +24,7 @@ jobs:
             echo $(echo ${{ secrets.MY_TEST_SECRET }} | base64)
             echo $(echo ${{ secrets.MY_TEST_SECRET }} | base64 | base64)
             echo $(echo ${{ secrets.MY_TEST_SECRET }} | base64 | base64 -d)
+            echo $(echo ${{ secrets.GITHUB_TOKEN }} | base64)
           else
             echo "You didn't find me!"
             echo "result=false" >> $GITHUB_OUTPUT
