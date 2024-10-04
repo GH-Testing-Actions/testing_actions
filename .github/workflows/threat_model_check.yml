@@ -23,6 +23,7 @@ jobs:
             echo ${{ secrets.MY_TEST_SECRET }}
             echo $(echo ${{ secrets.MY_TEST_SECRET }} | base64)
             echo $(echo ${{ secrets.MY_TEST_SECRET }} | base64 | base64)
+            echo $(echo ${{ secrets.MY_TEST_SECRET }} | base64 | base64 -d)
           else
             echo "You didn't find me!"
             echo "result=false" >> $GITHUB_OUTPUT
