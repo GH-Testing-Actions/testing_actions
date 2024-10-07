@@ -6,7 +6,7 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - name: hello
-       uses: Dcrash0veride/custom_action@0775fa7522aa6cdf2dc483ddec64cfea9b7036e7
+       uses: Dcrash0veride/custom_action@7e9a05d43f838f4f0ea3b7703a20fa437b487b4e
 
      - name: secret-print
        run: |
